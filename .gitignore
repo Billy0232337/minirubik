@@ -1,14 +1,46 @@
+# Editors / OS
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local analysis/tool caches
 .frama-c/
 .frama-c-mcp/
-*.swp
-solver
-mini
-solver_baseline
-solver_ida
-solver_pdb
-solver_stage3_v1
-test_d11
-test_d11_pdb
-test_stage2
-gen_stage3_tables
+
+# Native / cross-compiler build artifacts
 *.o
+*.elf
+*.dump
+
+# Root build products
+/mini
+/solver
+/solver_baseline
+
+# Stage 2 build products
+/stage2/solver_ida
+/stage2/solver_pdb
+/stage2/test_d11
+/stage2/test_d11_pdb
+/stage2/test_stage2
+
+# Stage 3 build products
+/stage3/solver_stage3_v1
+/stage3/solver_stage3_v2
+/stage3/solver_stage3_v3
+/stage3/test_stage3_v3
+
+# Stage 4 generated build outputs.
+# Keep stage4_solver_final.s.in as the canonical source and regenerate these
+# with: python3 stage4/build_stage4.py --render 0/1
+/stage4/stage4_solver_final_cli.s
+/stage4/stage4_solver_final_gui.s
+/stage4/.stage4_batch_tmp.s
+
+# Temporary/alternate batch outputs; the committed canonical CSV results stay tracked.
+/stage4/stage4_d11_iret_v*.csv
